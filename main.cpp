@@ -95,6 +95,7 @@ int main(int argc, char *argv[])
     cout<<endl;
 //задание 3
     userType data1, data2, data3, data4;
+    cout<<"Создание и инциализация 1 объекта STL контейнера List c пользовательскими данными. Текущие значения:"<<endl;
     list<userType> firstKont={data1, data2, data3, data4};
     list<userType> secondKont;
     list<userType> thirdKont;
@@ -106,25 +107,29 @@ int main(int argc, char *argv[])
         if(i->value==struct1.value) cout<<i->value<<" ";
         secondKont.splice(i, secondKont);
     }
+    cout<<"Создан 2 объект STL контейнера List c пользовательскими данными. Текущие значения:"<<endl;
     for(list<userType>::iterator i=secondKont.begin();i!=secondKont.end();i++)
         cout<<"value: "<<i->value<<" name: "<<i->name<<"\n";
     cout<<endl;
     firstKont.sort();
     secondKont.sort();
+    cout<<"Элементы 1 и 2 объектов после сортировки. 1 объект:"<<endl;
     for(list<userType>::iterator i=firstKont.begin();i!=firstKont.end();i++)
         cout<<"value: "<<i->value<<" name: "<<i->name<<"\n";
     cout<<endl;
+    cout<<"2 объект:"<<endl;
     for(list<userType>::iterator i=secondKont.begin();i!=secondKont.end();i++)
         cout<<"value: "<<i->value<<" name: "<<i->name<<"\n";
     thirdKont.merge(firstKont);
     thirdKont.merge(secondKont);
+    cout<<"Создан 3 объект STL контейнера List c пользовательскими данными путем слияния 1 и 2 объектов. Текущие значения:"<<endl;
     for(list<userType>::iterator i=thirdKont.begin();i!=thirdKont.end();i++)
         cout<<"value: "<<i->value<<" name: "<<i->name<<"\n";
     int count=0;
     for(list<userType>::iterator i=thirdKont.begin();i!=thirdKont.end();i++){
         if(i->value==struct2.value) count++;
     }
-    cout<<"Количество совпавших элементов="<<count<<endl;
+    cout<<"Количество совпавших с struct2.value элементов="<<count<<endl;
     if(count!=0)
         cout<<"В третьем контейнере есть элемент, совпадающий с заданным."<<endl;
     return 0;
